@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom T-Shirt Designer</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+    <style>
+        .shirt-container {
+            width: 500px;
+            height: auto;
+        }
+        .shirt-img {
+            width: 100%;
+            height: auto;
+        }
+        .print-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            height: auto;
+            transform: translate(-50%, -50%);
+            max-width: 50%;
+            max-height: 50%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column gap-5 justify-content-between">
+<header class="position-fixed vw-100 z-3">
+    <nav class="navbar navbar-expand-lg bg-primary px-4" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./shop.html" style="font-family: 'Felix Titling' ,sans-serif">ShopyFut</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse gap-4" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="./shop.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Ссылка</a></li>
+                </ul>
+                <button type="button" class="btn btn-success">
+                    <a href="./cart.html" class="text-decoration-none text-white">КОРЗИНА</a>
+                </button>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Поиск">
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="" style="margin-top: 64px">
+    <div class="container text-center">
+        <h1>Собери свою футболку!</h1>
+        <p>Вы можете придумать свой уникальный дизайн, выбрав из каталога готовые принты или загрузив свой!</p>
+        <p>Наши футболки из высококачественного материала, порадуют вас приятными тактильными ощущениями, а принты мы наносим вручную,
+            продливая жизнь принта на долговечный срок, стирка не навредит вашему принту никак!</p>
+    </div>
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <!-- Блок с изображением -->
+            <div class="col-md-6 d-flex justify-content-center align-items-center position-relative">
+                <div class="shirt-container position-relative">
+                    <img id="shirtImage" src="img/tshirts/white.jpg" class="shirt-img" alt="T-Shirt">
+                    <img id="printImage" class="print-img d-none" alt="Print">
+                </div>
+            </div>
+
+            <!-- Панель управления -->
+            <div class="d-flex flex-column justify-content-between p-4" style="border: 2px solid black; border-radius: 24px">
+                <div class="mb-3">
+                    <label class="form-label">Выберите тип одежды</label>
+                    <select id="clothingType" class="form-select">
+                        <option value="tshirt">Футболка</option>
+                        <option value="hoodie">Толстовка</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Выберите цвет</label>
+                    <select id="colorSelect" class="form-select">
+                        <option value="white">Белая</option>
+                        <option value="black">Чёрная</option>
+                        <option value="blue">Синяя</option>
+                        <option value="red">Красная</option>
+                        <option value="green">Зелёная</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Выберите принт</label>
+                    <select id="printSelect" class="form-select">
+                        <option value="none">Без принта</option>
+                        <option value="print1">Принт 1</option>
+                        <option value="print2">Принт 2</option>
+                        <option value="custom">Свой принт</option>
+                    </select>
+                </div>
+                <div class="mb-3 d-none" id="customPrintBlock">
+                    <label class="form-label">Загрузите свой принт</label>
+                    <input type="file" id="customPrintInput" class="form-control" accept="image/*">
+                </div>
+                <div class="gap-4 d-flex flex-column">
+                    <div class="d-flex flex-wrap gap-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                            <label class="form-check-label">
+                                XS
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" checked>
+                            <label class="form-check-label">
+                                S
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                            <label class="form-check-label" >
+                                L
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                            <label class="form-check-label" >
+                                M
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                            <label class="form-check-label">
+                                XL
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault">
+                            <label class="form-check-label">
+                                XXL
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="addToCart">
+                        В корзину
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const shirtImage = document.getElementById("shirtImage");
+        const printImage = document.getElementById("printImage");
+        const colorSelect = document.getElementById("colorSelect");
+        const printSelect = document.getElementById("printSelect");
+        const clothingType = document.getElementById("clothingType");
+        const customPrintBlock = document.getElementById("customPrintBlock");
+        const customPrintInput = document.getElementById("customPrintInput");
+
+        const images = {
+            tshirt: {
+                white: "img/tshirts/white.jpg",
+                black: "img/tshirts/black.jpg",
+                blue: "img/tshirts/blue.jpg",
+                red: "img/tshirts/red.jpg",
+                green: "img/tshirts/green.jpg",
+            },
+            hoodie: {
+                white: "img/hoodies/white.webp",
+            }
+        };
+
+        const prints = {
+            print1: "img/prints/1.png",
+            print2: "img/prints/2.png",
+        };
+
+        colorSelect.addEventListener("change", updateShirt);
+        clothingType.addEventListener("change", updateShirt);
+        printSelect.addEventListener("change", updatePrint);
+        customPrintInput.addEventListener("change", handleCustomPrintUpload);
+
+        let productImage; // Объявим переменную для пути к изображению
+
+        function updateShirt() {
+            const type = clothingType.value;
+            const color = colorSelect.value;
+            productImage = images[type][color];  // Сохраняем путь к изображению
+            shirtImage.src = productImage;      // Обновляем картинку
+        }
+
+
+
+        function updatePrint() {
+            const print = printSelect.value;
+
+            if (print === "none") {
+                printImage.classList.add("d-none");
+                customPrintBlock.classList.add("d-none");
+            } else if (print === "custom") {
+                customPrintBlock.classList.remove("d-none");
+                printImage.classList.add("d-none");
+            } else {
+                printImage.src = prints[print];
+                printImage.classList.remove("d-none");
+                customPrintBlock.classList.add("d-none");
+            }
+        }
+
+        function handleCustomPrintUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    printImage.src = e.target.result;
+                    printImage.classList.remove("d-none");
+
+                    // Записываем загруженный принт в select, чтобы его можно было сохранить в корзину
+                    printSelect.setAttribute("data-custom-print", e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        document.getElementById("addToCart").addEventListener("click", function () {
+            let clothingType = document.getElementById("clothingType").value;
+            let color = document.getElementById("colorSelect").value;
+            let print = document.getElementById("printSelect").value;
+            let customPrint = document.getElementById("printSelect").getAttribute("data-custom-print") || "";
+
+            // Получаем выбранный размер
+            let sizeSelect = document.getElementById("sizeSelect");
+            let selectedSize = sizeSelect ? sizeSelect.value : "S"; // Если select нет, ставим S
+
+            // Сохраняем путь к изображению
+            let productImage = images[clothingType][color];
+
+            let product = {
+                id: Date.now(),
+                name: clothingType === "tshirt" ? "Футболка" : "Толстовка",
+                color: color,
+                size: selectedSize, // Добавляем размер
+                print: print === "custom" ? customPrint : (print === "none" ? "" : prints[print]),
+                price: clothingType === "tshirt" ? 1499 : 2499,
+                image: productImage
+            };
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(product);
+            localStorage.setItem("cart", JSON.stringify(cart));
+        });
+
+
+    </script>
+
+</main>
+
+<footer class="bg-dark text-light py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <!-- О компании -->
+            <div class="col-md-3">
+                <h5>О нас</h5>
+                <p>Мы предлагаем стильную и качественную одежду с уникальными принтами. Создавайте свой стиль вместе с нами!</p>
+            </div>
+
+            <!-- Навигация -->
+            <div class="col-md-3">
+                <h5>Навигация</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Каталог</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">О нас</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Доставка и оплата</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Контакты</a></li>
+                </ul>
+            </div>
+
+            <!-- Контакты -->
+            <div class="col-md-3">
+                <h5>Контакты</h5>
+                <p><i class="bi bi-geo-alt"></i> г. Москва, ул. Примерная, д. 10</p>
+                <p><i class="bi bi-telephone"></i> +7 (999) 123-45-67</p>
+                <p><i class="bi bi-envelope"></i> info@shop.ru</p>
+            </div>
+
+            <!-- Социальные сети -->
+            <div class="col-md-3">
+                <h5>Мы в соцсетях</h5>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-facebook fs-4"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-telegram fs-4"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-light">
+
+        <!-- Копирайт и ссылки -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-0">© 2025 Все права защищены</p>
+            <div>
+                <a href="#" class="text-light text-decoration-none me-3">Политика конфиденциальности</a>
+                <a href="#" class="text-light text-decoration-none">Пользовательское соглашение</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

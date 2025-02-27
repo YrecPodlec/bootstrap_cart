@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+    <style>
+        .news-card {
+            display: flex;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .news-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        .news-card .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body style="font-family: FRACTAL ,sans-serif">
+<header class="position-fixed vw-100 z-3">
+    <nav class="navbar navbar-expand-lg bg-primary px-4" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./shop.html" style="font-family: 'Felix Titling' ,sans-serif">ShopyFut</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse gap-4" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="./shop.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Каталог</a></li>
+                </ul>
+                <button type="button" class="btn btn-success">
+                    <a href="./cart.html" class="text-decoration-none text-white">КОРЗИНА</a>
+                </button>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Поиск">
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+<!--ГЛАВНАЯ-->
+    <section id="carouselExampleCaptions" class="carousel slide bg-dark">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner" style="height: 90vh">
+            <div class="carousel-item active" style="height: 100%">
+                <img src="img/1.webp" class="object-fit-cover w-100 opacity-25" alt="...">
+                <div class="carousel-caption d-none d-md-block" style="letter-spacing: 4px">
+                    <h5>SHOPYFUT</h5>
+                    <p>LLC DigitalClothes Corp</p>
+                </div>
+                <div class="position-absolute top-50 start-50 translate-middle text-white text-center" style="font-size: 2rem">
+                    <h1 class="border-bottom border-2 border-white" style="font-family: 'Felix Titling' ,sans-serif">
+                        SHOPYFUT
+                    </h1>
+                    <p>
+                        Твой любимый магазин с интересными футболками!
+                    </p>
+                    <p>
+                        Скорей переходи в каталог чтобы узнать о новинках и выбрать свой индивидуальный дизайн!
+                    </p>
+                    <button type="button" class="btn btn-info"><a href="#catalog" class="text-decoration-none text-white">КАТАЛОГ</a></button>
+                </div>
+            </div>
+            <div class="carousel-item" style="height: 100%">
+                <img src="img/2.png" class="d-block w-100 opacity-25" alt="...">
+                <div class="carousel-caption d-none d-md-block" style="letter-spacing: 4px">
+                    <h5>SHOPYFUT</h5>
+                    <p>LLC DigitalClothes Corp</p>
+                </div>
+                <div class="position-absolute top-50 start-50 translate-middle text-white text-center" style="font-size: 2rem">
+                    <h1 class="border-bottom border-2 border-white" style="font-family: 'Felix Titling' ,sans-serif">
+                        SHOPYFUT
+                    </h1>
+                    <p>
+                        Создай свой уникальный дизайн! Творчество в твоих руках
+                    </p>
+                    <button type="button" class="btn btn-info"><a href="#catalog" class="text-decoration-none text-white">КАТАЛОГ</a></button>
+                </div>
+            </div>
+            <div class="carousel-item" style="height: 100%">
+                <img src="img/3.webp" class="d-block w-100 opacity-25" alt="...">
+                <div class="carousel-caption d-none d-md-block" style="letter-spacing: 4px">
+                    <h5>SHOPYFUT</h5>
+                    <p>LLC DigitalClothes Corp</p>
+                </div>
+                <div class="position-absolute top-50 start-50 translate-middle text-white text-center" style="font-size: 2rem">
+                    <h1 class="border-bottom border-2 border-white" style="font-family: 'Felix Titling' ,sans-serif">
+                        SHOPYFUT
+                    </h1>
+                    <p>
+                        Ещё и толстовки! Скорей выбирай классные варианты, которые подходят именно тебе!
+                    </p>
+                    <button type="button" class="btn btn-info"><a href="#catalog" class="text-decoration-none text-white">КАТАЛОГ</a></button>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev w-auto px-5 " type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next w-auto px-5 " type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </section>
+
+
+<!--    TABS-->
+    <section class="py-4 my-5" id="catalog">
+        <h1 class="text-center">КАТАЛОГ ТОВАРОВ</h1>
+        <div class="container mt-5">
+            <!-- Кнопки табов -->
+            <ul class="nav nav-tabs" id="myTabs">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tshirts">Футболки</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hoodies">Толстовки</button>
+                </li>
+            </ul>
+
+            <!-- Контент табов -->
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active" id="tshirts">
+                    <div class="row gap-4">
+<!--                        КАРТОЧКА-->
+                        <div class="card" style="width: 18rem;">
+                            <div style="width: 260px; height: 260px">
+                                <img src="img/tshirts/white.jpg" class="w-100 h-100 object-fit-cover" alt="...">
+                            </div>
+                            <div class="card-body gap-4 d-flex flex-column">
+                                <h5 class="card-title">Футболка белая</h5>
+                                <div class="d-flex flex-wrap gap-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label">
+                                            XS
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" checked>
+                                        <label class="form-check-label">
+                                            S
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            L
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            M
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label">
+                                            XL
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                        <label class="form-check-label">
+                                            XXL
+                                        </label>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-primary">В корзину</a>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div style="width: 260px; height: 260px">
+                                <img src="img/tshirts/black.jpg" class="w-100 h-100 object-fit-cover" alt="...">
+                            </div>
+                            <div class="card-body gap-4 d-flex flex-column">
+                                <h5 class="card-title">Футболка чёрная</h5>
+                                <div class="d-flex flex-wrap gap-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XS
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"  checked>
+                                        <label class="form-check-label" >
+                                            S
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            L
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            M
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XL
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XXL
+                                        </label>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-primary">В корзину</a>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div style="width: 260px; height: 260px">
+                                <img src="img/tshirts/red.jpg" class="w-100 h-100 object-fit-cover" alt="...">
+                            </div>
+                            <div class="card-body gap-4 d-flex flex-column">
+                                <h5 class="card-title">Футболка красная</h5>
+                                <div class="d-flex flex-wrap gap-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                        <label class="form-check-label" >
+                                            XS
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault"  checked>
+                                        <label class="form-check-label" >
+                                            S
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            L
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            M
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                        <label class="form-check-label" >
+                                            XL
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XXL
+                                        </label>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-primary">В корзину</a>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div style="width: 260px; height: 260px">
+                                <img src="img/tshirts/green.jpg" class="w-100 h-100 object-fit-cover" alt="...">
+                            </div>
+                            <div class="card-body gap-4 d-flex flex-column">
+                                <h5 class="card-title">Футболка зеленая</h5>
+                                <div class="d-flex flex-wrap gap-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XS
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" checked>
+                                        <label class="form-check-label" >
+                                            S
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label">
+                                            L
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            M
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XL
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XXL
+                                        </label>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-primary">В корзину</a>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div style="width: 260px; height: 260px">
+                                <img src="img/tshirts/blue.jpg" class="w-100 h-100 object-fit-cover" alt="...">
+                            </div>
+                            <div class="card-body gap-4 d-flex flex-column">
+                                <h5 class="card-title">Футболка синяя</h5>
+                                <div class="d-flex flex-wrap gap-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                        <label class="form-check-label" >
+                                            XS
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" checked>
+                                        <label class="form-check-label" >
+                                            S
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            L
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label">
+                                            M
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XL
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XXL
+                                        </label>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-primary">В корзину</a>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <a href="./unique.html" class="text-decoration-none text-black">
+                                <div style="width: 260px; height: 260px">
+                                    <img src="img/tshirts/white.jpg" class="w-100 h-100 object-fit-cover" alt="...">
+                                </div>
+                                <div class="card-body gap-4 d-flex flex-column">
+                                    <h5 class="card-title">Уникальная футболка</h5>
+                                    <div class="d-flex flex-wrap gap-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                            <label class="form-check-label" >
+                                                XS
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" checked>
+                                            <label class="form-check-label" >
+                                                S
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                            <label class="form-check-label" >
+                                                L
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                            <label class="form-check-label">
+                                                M
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                            <label class="form-check-label" >
+                                                XL
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                            <label class="form-check-label" >
+                                                XXL
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn btn-primary">В корзину</a>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="hoodies">
+                    <div class="row">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/hoodies/1.webp" class="card-img-top" alt="...">
+                            <div class="card-body gap-4 d-flex flex-column">
+                                <h5 class="card-title">Толстовка белая</h5>
+                                <div class="d-flex flex-wrap gap-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XS
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            S
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            L
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" checked>
+                                        <label class="form-check-label" >
+                                            M
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XL
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" >
+                                        <label class="form-check-label" >
+                                            XXL
+                                        </label>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-primary">В корзину</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container mt-5">
+            <div class="row">
+                <!-- Новость 1 -->
+                <div class="col-md-12 mb-4">
+                    <a href="news-1.html" class="text-decoration-none">
+                        <div class="card d-flex flex-row">
+                            <img src="test.jpg" class="card-img-left" alt="Новая коллекция весна 2025" style="width: 128px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Новая коллекция весна 2025</h5>
+                                <p class="card-text">Откройте для себя нашу новую весеннюю коллекцию, которая включает в себя стильные платья, легкие футболки и аксессуары. Подготовьтесь к теплу с самыми актуальными трендами сезона!</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Новость 2 -->
+                <div class="col-md-12 mb-4">
+                    <a href="news-2.html" class="text-decoration-none">
+                        <div class="card d-flex flex-row">
+                            <img src="test.jpg" class="card-img-left" alt="Скидки до 50% на летнюю одежду" style="width: 128px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Скидки до 50% на летнюю одежду</h5>
+                                <p class="card-text">Не упустите шанс! Только в этом месяце мы предлагаем скидки до 50% на популярные летние товары. Поторопитесь, количество ограничено!</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Новость 3 -->
+                <div class="col-md-12 mb-4">
+                    <a href="news-3.html" class="text-decoration-none">
+                        <div class="card d-flex flex-row">
+                            <img src="test.jpg" class="card-img-left" alt="Новая линия мужской одежды" style="width: 128px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Новая линия мужской одежды</h5>
+                                <p class="card-text">Мы рады представить новую коллекцию мужской одежды. В ней вы найдете стильные костюмы, рубашки и джинсы, которые подойдут для любого случая.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Новость 4 -->
+                <div class="col-md-12 mb-4">
+                    <a href="news-4.html" class="text-decoration-none">
+                        <div class="card d-flex flex-row">
+                            <img src="test.jpg" class="card-img-left" alt="Экологичные материалы в коллекциях" style="width: 128px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Экологичные материалы в коллекциях</h5>
+                                <p class="card-text">Мы заботимся о природе! В наших новых коллекциях использованы экологически чистые материалы. Одежда, которая не только красива, но и полезна для окружающей среды.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Новость 5 -->
+                <div class="col-md-12 mb-4">
+                    <a href="news-5.html" class="text-decoration-none">
+                        <div class="card d-flex flex-row">
+                            <img src="test.jpg" class="card-img-left" alt="Летние аксессуары для завершения образа" style="width: 128px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Летние аксессуары для завершения образа</h5>
+                                <p class="card-text">Не забывайте про аксессуары! Мы предлагаем коллекцию стильных сумок, очков и украшений, которые дополнят ваш летний образ и сделают его незабываемым.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Пагинация -->
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Предыдущая</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Следующая</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+
+</main>
+
+<footer class="bg-dark text-light py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <!-- О компании -->
+            <div class="col-md-3">
+                <h5>О нас</h5>
+                <p>Мы предлагаем стильную и качественную одежду с уникальными принтами. Создавайте свой стиль вместе с нами!</p>
+            </div>
+
+            <!-- Навигация -->
+            <div class="col-md-3">
+                <h5>Навигация</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Каталог</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">О нас</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Доставка и оплата</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Контакты</a></li>
+                </ul>
+            </div>
+
+            <!-- Контакты -->
+            <div class="col-md-3">
+                <h5>Контакты</h5>
+                <p><i class="bi bi-geo-alt"></i> г. Москва, ул. Примерная, д. 10</p>
+                <p><i class="bi bi-telephone"></i> +7 (999) 123-45-67</p>
+                <p><i class="bi bi-envelope"></i> info@shop.ru</p>
+            </div>
+
+            <!-- Социальные сети -->
+            <div class="col-md-3">
+                <h5>Мы в соцсетях</h5>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-facebook fs-4"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-telegram fs-4"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-light">
+
+        <!-- Копирайт и ссылки -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-0">© 2025 Все права защищены</p>
+            <div>
+                <a href="#" class="text-light text-decoration-none me-3">Политика конфиденциальности</a>
+                <a href="#" class="text-light text-decoration-none">Пользовательское соглашение</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -387,36 +387,50 @@
         const totalPriceElement = document.getElementById("total-price");
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        cartContainer.innerHTML = "";  // Очищаем корзину
+        cartContainer.innerHTML = "";
 
         if (cart.length === 0) {
-            cartContainer.innerHTML = "<p>Корзина пуста</p>";
-            totalPriceElement.textContent = "0";  // Если корзина пуста, цена 0
+            cartContainer.innerHTML = "<p class='text-muted'>Корзина пуста</p>";
+            totalPriceElement.textContent = "0";
             return;
         }
 
-        let totalPrice = 0;  // Суммарная цена
+        let totalPrice = 0;
 
-        // Перебираем каждый товар в корзине
         cart.forEach((item, index) => {
-            totalPrice += item.price;  // Добавляем цену товара
+            totalPrice += item.price * item.quantity; // Учитываем количество
 
             const cartItem = document.createElement("div");
-            cartItem.classList.add("card", "mb-3");
-            cartItem.style.maxWidth = "540px";
+            cartItem.classList.add("col-12");
 
             cartItem.innerHTML = `
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="${item.image}" class="img-fluid rounded-start" alt="${item.name}">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">${item.name}</h5>
-                        <p class="card-text">Размер: ${item.size}</p>
-                        ${item.print ? `<p class="card-text"><strong>Принт:</strong> <img src="${item.print}" style="max-width: 80px;"></p>` : ""}
-                        <p class="card-text"><strong>Цена:</strong> ${item.price} руб.</p>
-                        <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Удалить</button>
+            <div class="card shadow-sm p-3">
+                <div class="row align-items-center">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <div style="position: relative; width: 200px; height: 200px;">
+                            <img src="${item.image}" alt="${item.name}" class="img-fluid rounded mb-2" style="width: 100%; height: 100%;">
+                            ${item.print ? `
+                                <img src="${item.print}" class="print-overlay" style="
+                                    position: absolute;
+                                    width: 40%;
+                                    height: auto;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    object-fit: contain;
+                                ">
+                            ` : ""}
+                        </div>
+                        <p class="text-center text-muted">${item.name}</p>
+                    </div>
+                    <div class="col-md-8">
+                        <h5>${item.name}</h5>
+                        <p><strong>Размер:</strong> ${item.size}</p>
+                        <p><strong>Цена:</strong> ${item.price} руб.</p>
+                        <p><strong>Количество:</strong> ${item.quantity}</p>
+                        <button class="btn btn-outline-success btn-sm" onclick="changeQuantity(${index}, 1)">+</button>
+                        <button class="btn btn-outline-warning btn-sm" onclick="changeQuantity(${index}, -1)">-</button>
+                        <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart(${index})">Удалить</button>
                     </div>
                 </div>
             </div>
@@ -425,8 +439,9 @@
             cartContainer.appendChild(cartItem);
         });
 
-        totalPriceElement.textContent = totalPrice;  // Отображаем итоговую цену
+        totalPriceElement.textContent = totalPrice;
     }
+
 
     // Функция для удаления товара из корзины
     function removeFromCart(index) {
@@ -435,6 +450,21 @@
         localStorage.setItem("cart", JSON.stringify(cart));  // Обновляем корзину в локальном хранилище
         renderCart();  // Перерисовываем корзину
     }
+
+    function changeQuantity(index, delta) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (cart[index]) {
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1); // Удаляем товар, если количество стало 0
+            }
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+    }
+
 </script>
 
 </body>

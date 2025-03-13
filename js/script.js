@@ -12,25 +12,25 @@ document.addEventListener("DOMContentLoaded", function () {
             // Определяем выбранный размер
             const selectedSize = card.querySelector("input[type=radio]:checked")?.nextElementSibling.textContent.trim() || "S";
 
-            let product = {
-                id: Date.now(),
-                name: productName,
-                image: productImage, // Изображение будет добавлено позже из localStorage
-                size: selectedSize,
-                price: 1499, // Цена по умолчанию
-            };
-
-            // Получаем товары из localStorage
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            if (cart.length > 0) {
-                cart.forEach(item => {
-                    if (item.name === productName) {
-                        product.image = item.image; // Обновляем путь к изображению
-                    }
-                });
+
+            // Проверяем, есть ли уже этот товар в корзине
+            let existingItem = cart.find(item => item.name === productName && item.size === selectedSize);
+
+            if (existingItem) {
+                existingItem.quantity += 1; // Увеличиваем количество
+            } else {
+                let product = {
+                    id: Date.now(),
+                    name: productName,
+                    image: productImage, // Изображение
+                    size: selectedSize,
+                    price: 1499, // Цена по умолчанию
+                    quantity: 1, // Начальное количество
+                };
+                cart.push(product);
             }
 
-            cart.push(product);
             localStorage.setItem("cart", JSON.stringify(cart));
 
             updateCartCount();
@@ -39,9 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateCartCount() {
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const cartCount = cart.length;
+        const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
         document.getElementById("cartCount").textContent = cartCount;
     }
+
+
 
     updateCartCount();
 });
